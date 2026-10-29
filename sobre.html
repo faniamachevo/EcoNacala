@@ -1,0 +1,413 @@
+
+<!-- sobre.html -->
+<!-- sobre.html -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Sobre Nós | EcoNacala</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background: #f4f8f3;
+}
+
+.cabecalho {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.logo span {
+    color: #8be28b;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+    color: #8be28b;
+}
+
+/* Estilo do Seletor de Idiomas */
+.idioma-select {
+    background: rgba(4, 25, 17, 0.8);
+    color: white;
+    border: 1px solid #8be28b;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.idioma-select:hover {
+    background: #399b58;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 130px 7% 70px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 25, 17, 0.92),
+            rgba(4, 25, 17, 0.40)
+        ),
+        url("https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?auto=format&fit=crop&w=2000&q=85")
+        center/cover no-repeat;
+}
+
+.conteudo {
+    max-width: 720px;
+}
+
+.subtitulo {
+    color: #8be28b;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(40px, 6vw, 76px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+h1 span {
+    color: #8be28b;
+}
+
+.descricao {
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #e0e9e2;
+}
+
+.botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.botao {
+    display: inline-block;
+    background: #399b58;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: #287942;
+    transform: translateY(-3px);
+}
+
+.botao.secundario {
+    background: transparent;
+    border: 2px solid white;
+}
+
+.botao.secundario:hover {
+    background: white;
+    color: #174d2b;
+}
+
+footer {
+    background: #102d20;
+    padding: 20px;
+    text-align: center;
+    color: #d7e6d9;
+}
+
+.pagina {
+    min-height: 75vh;
+    padding: 60px 7%;
+    color: #183d29;
+}
+
+.pagina h1 {
+    font-size: 42px;
+}
+
+.pagina h2 {
+    margin: 25px 0 12px;
+}
+
+.pagina p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.formulario {
+    max-width: 600px;
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.formulario input,
+.formulario textarea,
+.formulario select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.formulario textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.formulario button {
+    border: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+.cartoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.cartao {
+    padding: 25px;
+    border-radius: 10px;
+    background: #e6f2e7;
+}
+
+.cartao h2 {
+    margin-top: 0;
+}
+
+@media (max-width: 760px) {
+    .cabecalho {
+        position: relative;
+        flex-direction: column;
+        background: #102d20;
+        padding: 20px;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        min-height: 85vh;
+        padding: 65px 6%;
+    }
+
+    .descricao {
+        font-size: 16px;
+    }
+
+    .pagina {
+        padding: 40px 6%;
+    }
+}
+    </style>
+</head>
+<body>
+    <header class="cabecalho" style="position:relative;background:#102d20">
+        <a href="index.html" class="logo">Eco<span>Nacala</span></a>
+        <nav>
+            <a href="index.html" data-i18n="nav-inicio">Início</a>
+            <a href="sobre.html" data-i18n="nav-sobre">Sobre Nós</a>
+            <a href="denuncias.html" data-i18n="nav-denuncias">Denúncias</a>
+            <a href="doe.html" data-i18n="nav-doe">Doe</a>
+            <a href="noticias.html" data-i18n="nav-noticias">Notícias</a>
+
+            <!-- Seletor de Idiomas -->
+            <select id="seletorIdioma" class="idioma-select" aria-label="Selecionar Idioma">
+                 <option value="">Selecionar Idioma</option>
+                <option value="pt">Portugues</option>
+                <option value="en">Englesh</option>
+                <option value="es">Espanhol</option>
+                <option value="fr">Frances</option>
+            </select>
+        </nav>
+    </header>
+
+    <main style="color:#183d29;padding:60px 7%;min-height:70vh">
+        <h1 data-i18n="page-title">Sobre Nós</h1>
+        <p data-i18n="page-desc">A EcoNacala é um projeto de sensibilização ambiental que promove a proteção da natureza e o combate à poluição.</p>
+
+        <h2 data-i18n="mission-title">Nossa missão</h2>
+        <p data-i18n="mission-desc">Incentivar a reciclagem, reduzir os resíduos e educar as comunidades para um ambiente mais limpo e saudável.</p>
+
+        <h2 data-i18n="vision-title">Nossa visão</h2>
+        <p data-i18n="vision-desc">Um planeta onde as pessoas e a natureza vivem em harmonia.</p>
+
+        <a href="denuncias.html" class="botao" data-i18n="btn-join">Participa na mudança</a>
+    </main>
+
+    <footer data-i18n="footer-text">© 2026 EcoNacala</footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const traducoes = {
+                pt: {
+                    title: "Sobre Nós | EcoNacala",
+                    "nav-inicio": "Início",
+                    "nav-sobre": "Sobre Nós",
+                    "nav-denuncias": "Denúncias",
+                    "nav-doe": "Doe",
+                    "nav-noticias": "Notícias",
+                    "page-title": "Sobre Nós",
+                    "page-desc": "A EcoNacala é um projeto de sensibilização ambiental que promove a proteção da natureza e o combate à poluição.",
+                    "mission-title": "Nossa missão",
+                    "mission-desc": "Incentivar a reciclagem, reduzir os resíduos e educar as comunidades para um ambiente mais limpo e saudável.",
+                    "vision-title": "Nossa visão",
+                    "vision-desc": "Um planeta onde as pessoas e a natureza vivem em harmonia.",
+                    "btn-join": "Participa na mudança",
+                    "footer-text": "© 2026 EcoNacala"
+                },
+                en: {
+                    title: "About Us | EcoNacala",
+                    "nav-inicio": "Home",
+                    "nav-sobre": "About Us",
+                    "nav-denuncias": "Reports",
+                    "nav-doe": "Donate",
+                    "nav-noticias": "News",
+                    "page-title": "About Us",
+                    "page-desc": "EcoNacala is an environmental awareness project promoting nature protection and fighting pollution.",
+                    "mission-title": "Our Mission",
+                    "mission-desc": "To encourage recycling, reduce waste, and educate communities for a cleaner, healthier environment.",
+                    "vision-title": "Our Vision",
+                    "vision-desc": "A planet where people and nature live in harmony.",
+                    "btn-join": "Join the Change",
+                    "footer-text": "© 2026 EcoNacala"
+                },
+                es: {
+                    title: "Sobre Nosotros | EcoNacala",
+                    "nav-inicio": "Inicio",
+                    "nav-sobre": "Sobre Nosotros",
+                    "nav-denuncias": "Denuncias",
+                    "nav-doe": "Dona",
+                    "nav-noticias": "Noticias",
+                    "page-title": "Sobre Nosotros",
+                    "page-desc": "EcoNacala es un proyecto de concienciación ambiental que promueve la protección de la naturaleza y la lucha contra la contaminación.",
+                    "mission-title": "Nuestra misión",
+                    "mission-desc": "Fomentar el reciclaje, reducir los residuos y educar a las comunidades para un entorno más limpio y saludable.",
+                    "vision-title": "Nuestra visión",
+                    "vision-desc": "Un planeta donde las personas y la naturaleza vivan en armonía.",
+                    "btn-join": "Sé parte del cambio",
+                    "footer-text": "© 2026 EcoNacala"
+                },
+                fr: {
+                    title: "À Propos | EcoNacala",
+                    "nav-inicio": "Accueil",
+                    "nav-sobre": "À Propos",
+                    "nav-denuncias": "Signalements",
+                    "nav-doe": "Faire un Don",
+                    "nav-noticias": "Actualités",
+                    "page-title": "À Propos de Nous",
+                    "page-desc": "EcoNacala est un projet de sensibilisation à l'environnement promouvant la protection de la nature et la lutte contre la pollution.",
+                    "mission-title": "Notre mission",
+                    "mission-desc": "Encourager le recyclage, réduire les déchets et éduquer les communautés pour un environnement plus propre et plus sain.",
+                    "vision-title": "Notre vision",
+                    "vision-desc": "Une planète où les êtres humains et la nature vivent en harmonie.",
+                    "btn-join": "Participez au changement",
+                    "footer-text": "© 2026 EcoNacala"
+                }
+            };
+
+            function mudarIdioma(idioma) {
+                const elementos = document.querySelectorAll("[data-i18n]");
+                elementos.forEach(el => {
+                    const chave = el.getAttribute("data-i18n");
+                    if (traducoes[idioma] && traducoes[idioma][chave]) {
+                        el.textContent = traducoes[idioma][chave];
+                    }
+                });
+                document.documentElement.lang = idioma;
+                localStorage.setItem("ecoNacalaIdioma", idioma);
+            }
+
+            const seletor = document.getElementById("seletorIdioma");
+            const idiomaSalvo = localStorage.getItem("ecoNacalaIdioma") || "pt";
+            seletor.value = idiomaSalvo;
+            mudarIdioma(idiomaSalvo);
+
+            seletor.addEventListener("change", (e) => {
+                mudarIdioma(e.target.value);
+            });
+
+            const paginaAtual = window.location.pathname.split("/").pop() || "index.html";
+
+            document.querySelectorAll("nav a").forEach(function (link) {
+                if (link.getAttribute("href") === paginaAtual) {
+                    link.setAttribute("aria-current", "page");
+                }
+            });
+
+            const formularios = document.querySelectorAll(".formulario");
+
+            formularios.forEach(function (formulario) {
+                formulario.addEventListener("submit", function (evento) {
+                    evento.preventDefault();
+
+                    if (!formulario.checkValidity()) {
+                        formulario.reportValidity();
+                        return;
+                    }
+
+                    alert(
+                        "Formulário validado! Esta demonstração ainda não envia os dados para um servidor."
+                    );
+
+                    formulario.reset();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

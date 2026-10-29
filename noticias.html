@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Notícias - EcoNacala</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background: #f4f8f3;
+}
+
+.cabecalho {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.logo span {
+    color: #8be28b;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+    color: #8be28b;
+}
+
+/* Estilo do Seletor de Idiomas */
+.idioma-select {
+    background: rgba(4, 25, 17, 0.8);
+    color: white;
+    border: 1px solid #8be28b;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.idioma-select:hover {
+    background: #399b58;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 130px 7% 70px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 25, 17, 0.92),
+            rgba(4, 25, 17, 0.40)
+        ),
+        url("https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?auto=format&fit=crop&w=2000&q=85")
+        center/cover no-repeat;
+}
+
+.conteudo {
+    max-width: 720px;
+}
+
+.subtitulo {
+    color: #8be28b;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(40px, 6vw, 76px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+h1 span {
+    color: #8be28b;
+}
+
+.descricao {
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #e0e9e2;
+}
+
+.botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.botao {
+    display: inline-block;
+    background: #399b58;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: #287942;
+    transform: translateY(-3px);
+}
+
+.botao.secundario {
+    background: transparent;
+    border: 2px solid white;
+}
+
+.botao.secundario:hover {
+    background: white;
+    color: #174d2b;
+}
+
+footer {
+    background: #102d20;
+    padding: 20px;
+    text-align: center;
+    color: #d7e6d9;
+}
+
+.pagina {
+    min-height: 75vh;
+    padding: 60px 7%;
+    color: #183d29;
+}
+
+.pagina h1 {
+    font-size: 42px;
+}
+
+.pagina h2 {
+    margin: 25px 0 12px;
+}
+
+.pagina p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.formulario {
+    max-width: 600px;
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.formulario input,
+.formulario textarea,
+.formulario select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.formulario textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.formulario button {
+    border: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+.cartoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.cartao {
+    padding: 25px;
+    border-radius: 10px;
+    background: #e6f2e7;
+}
+
+.cartao h2 {
+    margin-top: 0;
+}
+
+@media (max-width: 760px) {
+    .cabecalho {
+        position: relative;
+        flex-direction: column;
+        background: #102d20;
+        padding: 20px;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        min-height: 85vh;
+        padding: 65px 6%;
+    }
+
+    .descricao {
+        font-size: 16px;
+    }
+
+    .pagina {
+        padding: 40px 6%;
+    }
+}
+    </style>
+</head>
+<body>
+    <header class="cabecalho" style="position:relative;background:#102d20">
+        <a href="index.html" class="logo">Eco<span>Nacala</span></a>
+        <nav>
+            <a href="index.html" data-i18n="nav-inicio">Início</a>
+            <a href="sobre.html" data-i18n="nav-sobre">Sobre Nós</a>
+            <a href="denuncias.html" data-i18n="nav-denuncias">Denúncias</a>
+            <a href="doe.html" data-i18n="nav-doe">Doe</a>
+            <a href="noticias.html" data-i18n="nav-noticias">Notícias</a>
+
+            <!-- Seletor de Idiomas -->
+            <select id="seletorIdioma" class="idioma-select" aria-label="Selecionar Idioma">
+                <option value="">Selecionar Idioma</option>
+                <option value="pt">Portugues</option>
+                <option value="en">Englesh</option>
+                <option value="es">Espanhol</option>
+                <option value="fr">Frances</option>
+            </select>
+        </nav>
+    </header>
+
+    <main class="pagina">
+        <h1 data-i18n="page-title">Notícias Ambientais</h1>
+        <p data-i18n="page-desc">Descobre como as nossas ações podem ajudar a construir um ambiente mais saudável.</p>
+
+        <div class="cartoes">
+            <article class="cartao">
+                <h2 data-i18n="card1-title">Poluição dos oceanos</h2>
+                <p data-i18n="card1-desc">Os plásticos descartados incorretamente podem prejudicar a vida marinha.</p>
+                <p><strong data-i18n="card1-action-title">O que fazer:</strong> <span data-i18n="card1-action-desc">reduzir plásticos descartáveis e recolher o lixo.</span></p>
+            </article>
+
+            <article class="cartao">
+                <h2 data-i18n="card2-title">Importância das árvores</h2>
+                <p data-i18n="card2-desc">As árvores ajudam a conservar a biodiversidade e a absorver dióxido de carbono.</p>
+                <p><strong data-i18n="card2-action-title">O que fazer:</strong> <span data-i18n="card2-action-desc">proteger as árvores e apoiar o plantio responsável.</span></p>
+            </article>
+
+            <article class="cartao">
+                <h2 data-i18n="card3-title">Gestão de resíduos</h2>
+                <p data-i18n="card3-desc">A separação adequada dos resíduos facilita a reciclagem e reduz o lixo nos bairros.</p>
+                <p><strong data-i18n="card3-action-title">O que fazer:</strong> <span data-i18n="card3-action-desc">separar os materiais recicláveis sempre que possível.</span></p>
+            </article>
+        </div>
+    </main>
+
+    <footer data-i18n="footer-text">© 2026 EcoNacala</footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const traducoes = {
+                pt: {
+                    title: "Notícias - EcoNacala",
+                    "nav-inicio": "Início",
+                    "nav-sobre": "Sobre Nós",
+                    "nav-denuncias": "Denúncias",
+                    "nav-doe": "Doe",
+                    "nav-noticias": "Notícias",
+                    "page-title": "Notícias Ambientais",
+                    "page-desc": "Descobre como as nossas ações podem ajudar a construir um ambiente mais saudável.",
+                    "card1-title": "Poluição dos oceanos",
+                    "card1-desc": "Os plásticos descartados incorretamente podem prejudicar a vida marinha.",
+                    "card1-action-title": "O que fazer:",
+                    "card1-action-desc": "reduzir plásticos descartáveis e recolher o lixo.",
+                    "card2-title": "Importância das árvores",
+                    "card2-desc": "As árvores ajudam a conservar a biodiversidade e a absorver dióxido de carbono.",
+                    "card2-action-title": "O que fazer:",
+                    "card2-action-desc": "proteger as árvores e apoiar o plantio responsável.",
+                    "card3-title": "Gestão de resíduos",
+                    "card3-desc": "A separação adequada dos resíduos facilita a reciclagem e reduz o lixo nos bairros.",
+                    "card3-action-title": "O que fazer:",
+                    "card3-action-desc": "separar os materiais recicláveis sempre que possível.",
+                    "footer-text": "© 2026 EcoNacala"
+                },
+                en: {
+                    title: "News - EcoNacala",
+                    "nav-inicio": "Home",
+                    "nav-sobre": "About Us",
+                    "nav-denuncias": "Reports",
+                    "nav-doe": "Donate",
+                    "nav-noticias": "News",
+                    "page-title": "Environmental News",
+                    "page-desc": "Discover how our actions can help build a healthier environment.",
+                    "card1-title": "Ocean Pollution",
+                    "card1-desc": "Improperly discarded plastics can harm marine life.",
+                    "card1-action-title": "What to do:",
+                    "card1-action-desc": "reduce single-use plastics and collect trash.",
+                    "card2-title": "Importance of Trees",
+                    "card2-desc": "Trees help conserve biodiversity and absorb carbon dioxide.",
+                    "card2-action-title": "What to do:",
+                    "card2-action-desc": "protect trees and support responsible planting.",
+                    "card3-title": "Waste Management",
+                    "card3-desc": "Proper waste separation facilitates recycling and reduces neighborhood litter.",
+                    "card3-action-title": "What to do:",
+                    "card3-action-desc": "separate recyclable materials whenever possible.",
+                    "footer-text": "© 2026 EcoNacala"
+                },
+                es: {
+                    title: "Noticias - EcoNacala",
+                    "nav-inicio": "Inicio",
+                    "nav-sobre": "Sobre Nosotros",
+                    "nav-denuncias": "Denuncias",
+                    "nav-doe": "Dona",
+                    "nav-noticias": "Noticias",
+                    "page-title": "Noticias Ambientales",
+                    "page-desc": "Descubre cómo nuestras acciones pueden ayudar a construir un ambiente más saludable.",
+                    "card1-title": "Contaminación de los océanos",
+                    "card1-desc": "Los plásticos desechados incorrectamente pueden dañar la vida marina.",
+                    "card1-action-title": "Qué hacer:",
+                    "card1-action-desc": "reducir los plásticos desechables y recoger la basura.",
+                    "card2-title": "Importancia de los árboles",
+                    "card2-desc": "Los árboles ayudan a conservar la biodiversidad y a absorber dióxido de carbono.",
+                    "card2-action-title": "Qué hacer:",
+                    "card2-action-desc": "proteger los árboles y apoyar la plantación responsable.",
+                    "card3-title": "Gestión de residuos",
+                    "card3-desc": "La separación adecuada de los residuos facilita el reciclaje y reduce la basura en los barrios.",
+                    "card3-action-title": "Qué hacer:",
+                    "card3-action-desc": "separar los materiales reciclables siempre que sea posible.",
+                    "footer-text": "© 2026 EcoNacala"
+                },
+                fr: {
+                    title: "Actualités - EcoNacala",
+                    "nav-inicio": "Accueil",
+                    "nav-sobre": "À Propos",
+                    "nav-denuncias": "Signalements",
+                    "nav-doe": "Faire un Don",
+                    "nav-noticias": "Actualités",
+                    "page-title": "Actualités Environnementales",
+                    "page-desc": "Découvrez comment nos actions peuvent aider à construire un environnement plus sain.",
+                    "card1-title": "Pollution des océans",
+                    "card1-desc": "Les plastiques mal éliminés peuvent nuire à la vie marine.",
+                    "card1-action-title": "Que faire :",
+                    "card1-action-desc": "réduire les plastiques jetables et ramasser les déchets.",
+                    "card2-title": "Importance des arbres",
+                    "card2-desc": "Les arbres aident à préserver la biodiversité et à absorber le dioxyde de carbone.",
+                    "card2-action-title": "Que faire :",
+                    "card2-action-desc": "protéger les arbres et soutenir une plantation responsable.",
+                    "card3-title": "Gestion des déchets",
+                    "card3-desc": "Le tri adéquat des déchets facilite le recyclage et réduit les ordures dans les quartiers.",
+                    "card3-action-title": "Que faire :",
+                    "card3-action-desc": "séparer les matériaux recyclables chaque fois que possible.",
+                    "footer-text": "© 2026 EcoNacala"
+                }
+            };
+
+            function mudarIdioma(idioma) {
+                const elementos = document.querySelectorAll("[data-i18n]");
+                elementos.forEach(el => {
+                    const chave = el.getAttribute("data-i18n");
+                    if (traducoes[idioma] && traducoes[idioma][chave]) {
+                        el.textContent = traducoes[idioma][chave];
+                    }
+                });
+                document.documentElement.lang = idioma;
+                localStorage.setItem("ecoNacalaIdioma", idioma);
+            }
+
+            const seletor = document.getElementById("seletorIdioma");
+            const idiomaSalvo = localStorage.getItem("ecoNacalaIdioma") || "pt";
+            seletor.value = idiomaSalvo;
+            mudarIdioma(idiomaSalvo);
+
+            seletor.addEventListener("change", (e) => {
+                mudarIdioma(e.target.value);
+            });
+
+            const paginaAtual = window.location.pathname.split("/").pop() || "index.html";
+
+            document.querySelectorAll("nav a").forEach(function (link) {
+                if (link.getAttribute("href") === paginaAtual) {
+                    link.setAttribute("aria-current", "page");
+                }
+            });
+
+            const formularios = document.querySelectorAll(".formulario");
+
+            formularios.forEach(function (formulario) {
+                formulario.addEventListener("submit", function (evento) {
+                    evento.preventDefault();
+
+                    if (!formulario.checkValidity()) {
+                        formulario.reportValidity();
+                        return;
+                    }
+
+                    alert(
+                        "Formulário validado! Esta demonstração ainda não envia os dados para um servidor."
+                    );
+
+                    formulario.reset();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

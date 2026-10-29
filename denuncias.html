@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Denúncias - EcoNacala</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background: #f4f8f3;
+}
+
+.cabecalho {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.logo span {
+    color: #8be28b;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+    color: #8be28b;
+}
+
+/* Estilo do Seletor de Idiomas */
+.idioma-select {
+    background: rgba(4, 25, 17, 0.8);
+    color: white;
+    border: 1px solid #8be28b;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.idioma-select:hover {
+    background: #399b58;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 130px 7% 70px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 25, 17, 0.92),
+            rgba(4, 25, 17, 0.40)
+        ),
+        url("https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?auto=format&fit=crop&w=2000&q=85")
+        center/cover no-repeat;
+}
+
+.conteudo {
+    max-width: 720px;
+}
+
+.subtitulo {
+    color: #8be28b;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(40px, 6vw, 76px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+h1 span {
+    color: #8be28b;
+}
+
+.descricao {
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #e0e9e2;
+}
+
+.botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.botao {
+    display: inline-block;
+    background: #399b58;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: #287942;
+    transform: translateY(-3px);
+}
+
+.botao.secundario {
+    background: transparent;
+    border: 2px solid white;
+}
+
+.botao.secundario:hover {
+    background: white;
+    color: #174d2b;
+}
+
+footer {
+    background: #102d20;
+    padding: 20px;
+    text-align: center;
+    color: #d7e6d9;
+}
+
+.pagina {
+    min-height: 75vh;
+    padding: 60px 7%;
+    color: #183d29;
+}
+
+.pagina h1 {
+    font-size: 42px;
+}
+
+.pagina h2 {
+    margin: 25px 0 12px;
+}
+
+.pagina p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.formulario {
+    max-width: 600px;
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.formulario input,
+.formulario textarea,
+.formulario select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.formulario textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.formulario button {
+    border: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+.cartoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.cartao {
+    padding: 25px;
+    border-radius: 10px;
+    background: #e6f2e7;
+}
+
+.cartao h2 {
+    margin-top: 0;
+}
+
+@media (max-width: 760px) {
+    .cabecalho {
+        position: relative;
+        flex-direction: column;
+        background: #102d20;
+        padding: 20px;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        min-height: 85vh;
+        padding: 65px 6%;
+    }
+
+    .descricao {
+        font-size: 16px;
+    }
+
+    .pagina {
+        padding: 40px 6%;
+    }
+}
+    </style>
+</head>
+<body>
+    <header class="cabecalho" style="position:relative;background:#102d20">
+        <a href="index.html" class="logo">Eco<span>Nacala</span></a>
+        <nav>
+            <a href="index.html" data-i18n="nav-inicio">Início</a>
+            <a href="sobre.html" data-i18n="nav-sobre">Sobre Nós</a>
+            <a href="denuncias.html" data-i18n="nav-denuncias">Denúncias</a>
+            <a href="doe.html" data-i18n="nav-doe">Doe</a>
+            <a href="noticias.html" data-i18n="nav-noticias">Notícias</a>
+
+            <!-- Seletor de Idiomas -->
+            <select id="seletorIdioma" class="idioma-select" aria-label="Selecionar Idioma">
+                <option value="">Selecionar Idioma</option>
+                <option value="pt">Portugues</option>
+                <option value="en">Englesh</option>
+                <option value="es">Espanhol</option>
+                <option value="fr">Frances</option>
+            </select>
+        </nav>
+    </header>
+
+    <main class="pagina">
+        <h1 data-i18n="page-title">Denuncia a Poluição</h1>
+        <p data-i18n="page-desc">Descreve um problema ambiental que observaste.</p>
+
+        <form class="formulario">
+            <label for="nome" data-i18n="label-nome">Nome</label>
+            <input id="nome" name="nome" required placeholder="O teu nome" data-i18n-placeholder="placeholder-nome">
+
+            <label for="tipo" data-i18n="label-tipo">Tipo de poluição</label>
+            <select id="tipo" name="tipo" required>
+                <option value="" data-i18n="opt-default">Seleciona uma opção</option>
+                <option value="agua" data-i18n="opt-agua">Poluição da água</option>
+                <option value="ar" data-i18n="opt-ar">Poluição do ar</option>
+                <option value="lixo" data-i18n="opt-lixo">Acumulação de lixo</option>
+                <option value="sonora" data-i18n="opt-sonora">Poluição sonora</option>
+                <option value="desflorestacao" data-i18n="opt-desflorestacao">Desflorestação</option>
+                <option value="outra" data-i18n="opt-outra">Outra</option>
+            </select>
+
+            <label for="local" data-i18n="label-local">Local da ocorrência</label>
+            <input id="local" name="local" required placeholder="Ex.: bairro ou cidade" data-i18n-placeholder="placeholder-local">
+
+            <label for="descricao" data-i18n="label-desc">Descrição</label>
+            <textarea id="descricao" name="descricao" required placeholder="Descreve o problema" data-i18n-placeholder="placeholder-desc"></textarea>
+
+            <button type="submit" class="botao" data-i18n="btn-enviar">Enviar Denúncia</button>
+        </form>
+
+        <p data-i18n="nota-form">Nota: este formulário é demonstrativo e não envia denúncias às autoridades.</p>
+    </main>
+
+    <footer data-i18n="footer-text">© 2026 EcoNacala</footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const traducoes = {
+                pt: {
+                    title: "Denúncias - EcoNacala",
+                    "nav-inicio": "Início",
+                    "nav-sobre": "Sobre Nós",
+                    "nav-denuncias": "Denúncias",
+                    "nav-doe": "Doe",
+                    "nav-noticias": "Notícias",
+                    "page-title": "Denuncia a Poluição",
+                    "page-desc": "Descreve um problema ambiental que observaste.",
+                    "label-nome": "Nome",
+                    "placeholder-nome": "O teu nome",
+                    "label-tipo": "Tipo de poluição",
+                    "opt-default": "Seleciona uma opção",
+                    "opt-agua": "Poluição da água",
+                    "opt-ar": "Poluição do ar",
+                    "opt-lixo": "Acumulação de lixo",
+                    "opt-sonora": "Poluição sonora",
+                    "opt-desflorestacao": "Desflorestação",
+                    "opt-outra": "Outra",
+                    "label-local": "Local da ocorrência",
+                    "placeholder-local": "Ex.: bairro ou cidade",
+                    "label-desc": "Descrição",
+                    "placeholder-desc": "Descreve o problema",
+                    "btn-enviar": "Enviar Denúncia",
+                    "nota-form": "Nota: este formulário é demonstrativo e não envia denúncias às autoridades.",
+                    "footer-text": "© 2026 EcoNacala",
+                    "alert-msg": "Formulário validado! Esta demonstração ainda não envia os dados para um servidor."
+                },
+                en: {
+                    title: "Reports - EcoNacala",
+                    "nav-inicio": "Home",
+                    "nav-sobre": "About Us",
+                    "nav-denuncias": "Reports",
+                    "nav-doe": "Donate",
+                    "nav-noticias": "News",
+                    "page-title": "Report Pollution",
+                    "page-desc": "Describe an environmental problem you observed.",
+                    "label-nome": "Name",
+                    "placeholder-nome": "Your name",
+                    "label-tipo": "Type of pollution",
+                    "opt-default": "Select an option",
+                    "opt-agua": "Water pollution",
+                    "opt-ar": "Air pollution",
+                    "opt-lixo": "Waste accumulation",
+                    "opt-sonora": "Noise pollution",
+                    "opt-desflorestacao": "Deforestation",
+                    "opt-outra": "Other",
+                    "label-local": "Location of occurrence",
+                    "placeholder-local": "Ex.: neighborhood or city",
+                    "label-desc": "Description",
+                    "placeholder-desc": "Describe the problem",
+                    "btn-enviar": "Submit Report",
+                    "nota-form": "Note: this form is demonstrative and does not send reports to authorities.",
+                    "footer-text": "© 2026 EcoNacala",
+                    "alert-msg": "Form validated! This demo does not send data to a server yet."
+                },
+                es: {
+                    title: "Denuncias - EcoNacala",
+                    "nav-inicio": "Inicio",
+                    "nav-sobre": "Sobre Nosotros",
+                    "nav-denuncias": "Denuncias",
+                    "nav-doe": "Dona",
+                    "nav-noticias": "Noticias",
+                    "page-title": "Denuncia la Contaminación",
+                    "page-desc": "Describe un problema ambiental que hayas observado.",
+                    "label-nome": "Nombre",
+                    "placeholder-nome": "Tu nombre",
+                    "label-tipo": "Tipo de contaminación",
+                    "opt-default": "Selecciona una opción",
+                    "opt-agua": "Contaminación del agua",
+                    "opt-ar": "Contaminación del aire",
+                    "opt-lixo": "Acumulación de basura",
+                    "opt-sonora": "Contaminación acústica",
+                    "opt-desflorestacao": "Deforestación",
+                    "opt-outra": "Otra",
+                    "label-local": "Lugar de la ocurrencia",
+                    "placeholder-local": "Ej.: barrio o ciudad",
+                    "label-desc": "Descripción",
+                    "placeholder-desc": "Describe el problema",
+                    "btn-enviar": "Enviar Denuncia",
+                    "nota-form": "Nota: este formulario es demostrativo y no envía denuncias a las autoridades.",
+                    "footer-text": "© 2026 EcoNacala",
+                    "alert-msg": "¡Formulario validado! Esta demostración aún no envía los datos a un servidor."
+                },
+                fr: {
+                    title: "Signalements - EcoNacala",
+                    "nav-inicio": "Accueil",
+                    "nav-sobre": "À Propos",
+                    "nav-denuncias": "Signalements",
+                    "nav-doe": "Faire un Don",
+                    "nav-noticias": "Actualités",
+                    "page-title": "Signaler la Pollution",
+                    "page-desc": "Décrivez un problème environnemental que vous avez observé.",
+                    "label-nome": "Nom",
+                    "placeholder-nome": "Votre nom",
+                    "label-tipo": "Type de pollution",
+                    "opt-default": "Sélectionnez une option",
+                    "opt-agua": "Pollution de l'eau",
+                    "opt-ar": "Pollution de l'air",
+                    "opt-lixo": "Accumulation de déchets",
+                    "opt-sonora": "Pollution sonore",
+                    "opt-desflorestacao": "Déforestation",
+                    "opt-outra": "Autre",
+                    "label-local": "Lieu de l'occurrence",
+                    "placeholder-local": "Ex. : quartier ou ville",
+                    "label-desc": "Description",
+                    "placeholder-desc": "Décrivez le problème",
+                    "btn-enviar": "Envoyer le Signalement",
+                    "nota-form": "Remarque : ce formulaire est démonstratif et n'envoie pas de signalements aux autorités.",
+                    "footer-text": "© 2026 EcoNacala",
+                    "alert-msg": "Formulaire validé ! Cette démonstration n'envoie pas encore les données à un serveur."
+                }
+            };
+
+            function mudarIdioma(idioma) {
+                const elementos = document.querySelectorAll("[data-i18n]");
+                elementos.forEach(el => {
+                    const chave = el.getAttribute("data-i18n");
+                    if (traducoes[idioma] && traducoes[idioma][chave]) {
+                        el.textContent = traducoes[idioma][chave];
+                    }
+                });
+
+                const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
+                placeholders.forEach(el => {
+                    const chave = el.getAttribute("data-i18n-placeholder");
+                    if (traducoes[idioma] && traducoes[idioma][chave]) {
+                        el.setAttribute("placeholder", traducoes[idioma][chave]);
+                    }
+                });
+
+                document.documentElement.lang = idioma;
+                localStorage.setItem("ecoNacalaIdioma", idioma);
+            }
+
+            const seletor = document.getElementById("seletorIdioma");
+            const idiomaSalvo = localStorage.getItem("ecoNacalaIdioma") || "pt";
+            seletor.value = idiomaSalvo;
+            mudarIdioma(idiomaSalvo);
+
+            seletor.addEventListener("change", (e) => {
+                mudarIdioma(e.target.value);
+            });
+
+            const paginaAtual = window.location.pathname.split("/").pop() || "index.html";
+
+            document.querySelectorAll("nav a").forEach(function (link) {
+                if (link.getAttribute("href") === paginaAtual) {
+                    link.setAttribute("aria-current", "page");
+                }
+            });
+
+            const formularios = document.querySelectorAll(".formulario");
+
+            formularios.forEach(function (formulario) {
+                formulario.addEventListener("submit", function (evento) {
+                    evento.preventDefault();
+
+                    if (!formulario.checkValidity()) {
+                        formulario.reportValidity();
+                        return;
+                    }
+
+                    const idiomaAtual = localStorage.getItem("ecoNacalaIdioma") || "pt";
+                    const mensagemAlerta = traducoes[idiomaAtual]["alert-msg"] || traducoes["pt"]["alert-msg"];
+
+                    alert(mensagemAlerta);
+
+                    formulario.reset();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
